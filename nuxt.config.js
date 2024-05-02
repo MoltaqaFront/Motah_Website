@@ -93,20 +93,21 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: [{
-          name: 'عربي ',
-          code: 'ar',
-          iso: 'ar-AR',
-          file: 'ar-AR.js',
-          dir: 'rtl',
-        },
-        {
-          name: 'English',
-          code: 'en',
-          iso: 'en-US',
-          file: 'en-US.js',
-          dir: 'ltr',
-        },
+        locales: [
+          {
+            name: 'عربي ',
+            code: 'ar',
+            iso: 'ar-AR',
+            file: 'ar-AR.js',
+            dir: 'rtl',
+          },
+          {
+            name: 'English',
+            code: 'en',
+            iso: 'en-US',
+            file: 'en-US.js',
+            dir: 'ltr',
+          },
         ],
         lazy: true,
         langDir: 'locales/',
@@ -154,15 +155,6 @@ export default {
   router: {
     mode: 'history',
     base: '/',
-    extendRoutes(routes) {
-      routes.push({
-        path: '*',
-        redirect: '/',
-      }, {
-        path: '/en',
-        redirect: '/',
-      })
-    },
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -187,9 +179,8 @@ export default {
   build: {
     postcss: false,
     transpile: ['vee-validate/dist/rules'],
-    publicPath: "https://motaah-app.com/",
+    // publicPath: "https://motaah-app.com/",
   },
-
 
   // server: {
   //   port: 5000,

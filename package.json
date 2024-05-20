@@ -21,6 +21,7 @@
     "less-loader": "^11.0.0",
     "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.22.3",
+    "nuxt-sweetalert2": "^1.0.0",
     "sass-loader": "^10.2.0",
     "v-owl-carousel": "^1.0.8",
     "vee-validate": "^3.0.11",
@@ -37,5 +38,9 @@
     "@nuxtjs/vuetify": "^1.12.3",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.5.1"
+  },
+  "nuxt": {
+    "host": "0.0.0.0",
+    "port": "5032"
   }
 }

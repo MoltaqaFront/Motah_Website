@@ -29,7 +29,8 @@
         input {
         }
 
-        input {
+        input,
+        select {
           width: 100%;
           padding-inline-start: 20px;
           height: 45px;
@@ -37,16 +38,18 @@
           border-radius: 5px;
           border: none !important;
           outline: none;
+          color: #000;
         }
 
         textarea {
           padding: 10px 16px;
           height: 79px;
-          background: #017ccb80 ;
+          background: #017ccb80;
           border: none !important;
           outline: none;
           resize: none;
           width: 100%;
+          color: #000;
           padding-inline-start: 20px;
         }
 
@@ -59,7 +62,7 @@
           outline: 0;
           cursor: pointer;
           font-size: 16px;
-          box-shadow: 0 0 14px #80C2FF;
+          box-shadow: 0 0 14px #80c2ff;
           border-radius: 50px;
           text-align: center;
           color: #fff;

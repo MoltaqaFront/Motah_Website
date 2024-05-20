@@ -78,6 +78,7 @@ export default {
     tax: 'tax',
     total: ' total',
     no_data: 'There Is No Data',
+    select_option: 'Message Type',
   },
 
   invoice: {
@@ -103,6 +104,9 @@ export default {
     specialization: 'Specialization',
     years_of_experience: 'Years of Experience',
     workplace: 'Workplace',
+    remote: 'Remote',
+    home: 'Home',
+    app_comm: 'App Commission',
     address: 'Address',
     work_dates: 'Work Dates (From - To)',
     hours_per_day: 'Hours per Day',
@@ -111,5 +115,38 @@ export default {
     total_job_payment_without_tax: 'Total Job Payment (Without Tax)',
     paid_amount_to_employee_without_tax:
       'Paid Amount to Employee (Without Tax)',
+  },
+
+  STATUS: {
+    accepted: 'Accepted',
+    rejected: 'Rejected',
+    canceled: 'Canceled',
+    pending: 'Pending',
+    onGoing: 'On Going',
+    done: 'Finished',
+    verified: 'Verified',
+    notVerified: 'Not Verified',
+    active: 'Active',
+    notActive: 'Not Active',
+    available: 'Available',
+    notAvailable: 'Not Available',
+    replied: 'Replied',
+    notReplied: 'Not Replied',
+    processing: 'Processing',
+    inWay: 'In Way',
+    approved: 'Approved',
+    new: 'New',
+    published: 'Published',
+    notPublished: 'Not Published',
+    request: 'Request',
+    suggestion: 'Suggestion',
+    inquiry: 'Inquiry',
+    complaint: 'Complaint',
+    other: 'Other',
+    all: 'All',
+  },
+
+  validations: {
+    required: '{_field_} is required',
   },
 }

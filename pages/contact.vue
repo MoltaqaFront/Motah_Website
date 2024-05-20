@@ -36,10 +36,21 @@
 
                       <ValidationProvider rules="required" :name="$t('contact.phone')" v-slot="{ errors }">
                         <div class="form-group">
-                          <input type="text" v-model="form.phone" :placeholder="$t('contact.phone')" />
+                          <input type="text" v-model="form.phone_number" :placeholder="$t('contact.phone')" />
                           <span class="validation_message">{{ errors[0] }}</span>
                         </div>
 
+                      </ValidationProvider>
+
+                      <ValidationProvider rules="required" :name="$t('user.select_option')" v-slot="{ errors }">
+                        <div class="form-group">
+                          <select v-model="form.type">
+                            <option value="">{{ $t('user.select_option') }}</option>
+                            <option v-for="(option, index) in messageTypes" :key="'l' + index" :value="option.value">{{
+                              option.name }}
+                            </option>
+                          </select>
+                        </div>
                       </ValidationProvider>
 
                       <ValidationProvider rules="required" :name="$t('contact.message')" v-slot="{ errors }">
@@ -99,21 +110,52 @@ export default {
       form: {
         name: "",
         email: "",
-        phone: "",
+        phone_number: "",
         message: "",
-        type: "contact"
+        type: ""
       },
 
 
     }
   },
 
-  created() {
-
-  },
-
-
   computed: {
+
+    messageTypes() {
+      return [
+        {
+          id: 1,
+          name: this.$t("STATUS.request"),
+          value: "order",
+        },
+        {
+          id: 2,
+          name: this.$t("STATUS.suggestion"),
+          value: "suggestion",
+        },
+        {
+          id: 3,
+          name: this.$t("STATUS.inquiry"),
+          value: "explanation",
+        },
+        {
+          id: 4,
+          name: this.$t("STATUS.complaint"),
+          value: "complaint",
+        },
+        {
+          id: 5,
+          name: this.$t("STATUS.other"),
+          value: "other",
+        },
+        {
+          id: 6,
+          name: this.$t("STATUS.all"),
+          value: null,
+        },
+      ];
+    },
+
   },
 
   //  when component load
@@ -135,11 +177,11 @@ export default {
     async sendData() {
 
       try {
-        await this.$axios.$post('user/general/contact-complaints', this.form).then(response => {
+        await this.$axios.$post('main/send-message', this.form).then(response => {
 
           this.form.name = '';
           this.form.email = '';
-          this.form.phone = '';
+          this.form.phone_number = '';
           this.form.message = '';
 
           this.$refs.observer.reset();

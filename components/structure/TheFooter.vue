@@ -29,7 +29,11 @@
               <button @click="scrollToSection('download_app_section')"> {{ $t("nav.download") }} </button>
             </li>
             <li class="footer_route">
-              <button @click="scrollToSection('contact_us_section')"> {{ $t("nav.contact") }} </button>
+              <button>
+                <nuxt-link :to="localePath('/contact')">
+                  {{ $t('nav.contact') }}
+                </nuxt-link>
+              </button>
             </li>
           </ul>
         </div>
@@ -51,7 +55,7 @@
                 <i class="fa-solid fa-fax"></i>
               </span>
 
-              <a href="tel:0566989608"><span class="value"> 0566989608</span></a>
+              <span class="value" v-for="(item, index) in phones">{{ item.value }}</span>
             </li>
 
             <li class="contact_info_item">
@@ -59,7 +63,8 @@
                 <i class="fa-solid fa-location-dot"></i>
               </span>
 
-              <a href="https://goo.gl/maps/pyKsGuyD9gRBR2UC7" target="_blank"> <span class="value"> {{ $t('address') }} </span> </a>
+              <a :href="location" target="_blank"> <span class="value"> {{ address }}
+                </span> </a>
             </li>
           </ul>
 
@@ -100,14 +105,45 @@ export default {
   methods: {
     // START:: SCROLL TO SECTION
     scrollToSection(section_id) {
-      if (this.$route.path.includes("/register")) {
-        this.$router.push("/");
+      if (this.$route.path != this.localePath('/')) {
+        this.$router.push(this.localePath('/'))
       } else {
-        const selected_section = document.querySelector(`#${section_id}`);
-        selected_section.scrollIntoView();
+        const selected_section = document.querySelector(`#${section_id}`)
+        selected_section.scrollIntoView()
       }
     },
     // END:: SCROLL TO SECTION
+
+
+    async getData() {
+      try {
+        return await this.$axios.get(`main/app-setting?type=contact_us`).then(response => {
+          this.phones = response.data.data.phone_number;
+          this.address = response.data.data.address;
+          this.location = response.data.data.location;
+        }).catch(error => {
+          console.log(error)
+        })
+      } catch (error) {
+        console.log("catch : " + error)
+      }
+    }
+
   },
+
+  data() {
+    return {
+      address: '',
+      location: '',
+      phones: '',
+
+    };
+  },
+
+
+  mounted() {
+    this.getData();
+  }
+
 }
 </script>

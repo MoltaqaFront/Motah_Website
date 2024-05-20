@@ -621,24 +621,24 @@
       }
     }
 
-		&.picker,
-		&.radio {
-			._input {
-				.v-input {
-					.v-input__control {
-						.v-input__slot {
-							.v-text-field__slot {
-								height: inherit;
-								label.v-label {
-									left: auto !important;
-									right: 15px !important;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+    &.picker,
+    &.radio {
+      ._input {
+        .v-input {
+          .v-input__control {
+            .v-input__slot {
+              .v-text-field__slot {
+                height: inherit;
+                label.v-label {
+                  left: auto !important;
+                  right: 15px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     &.autoComplete {
       ._input {

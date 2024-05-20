@@ -19,21 +19,33 @@
           </li>
 
           <li class="navbar_route">
-            <button @click="scrollToSection('about_section')">
-              {{ $t('nav.about') }}
-            </button>
-          </li>
-
-          <li class="navbar_route">
-            <button @click="scrollToSection('app_screens_section')">
-              {{ $t('nav.screen') }}
-            </button>
-          </li>
-
-          <li class="navbar_route">
-            <button @click="scrollToSection('download_app_section')">
+            <!-- <button @click="scrollToSection('download_app_section')">
               {{ $t('nav.download') }}
-            </button>
+            </button> -->
+
+            <nuxt-link :to="localePath('/') + '#about_section'">
+              {{ $t('nav.about') }}
+            </nuxt-link>
+          </li>
+
+          <li class="navbar_route">
+            <!-- <button @click="scrollToSection('download_app_section')">
+              {{ $t('nav.download') }}
+            </button> -->
+
+            <nuxt-link :to="localePath('/') + '#app_screens_section'">
+              {{ $t('nav.screen') }}
+            </nuxt-link>
+          </li>
+
+          <li class="navbar_route">
+            <!-- <button @click="scrollToSection('download_app_section')">
+              {{ $t('nav.download') }}
+            </button> -->
+
+            <nuxt-link :to="localePath('/') + '#download_app_section'">
+              {{ $t('nav.download') }}
+            </nuxt-link>
           </li>
 
           <li class="navbar_route">
@@ -55,8 +67,7 @@
           </li>
           <li class="navbar_route">
             <template v-if="$i18n.locale == 'en'">
-              <nuxt-link v-for="(locale, i) in showLocales" :key="i"
-                :to="switchLocalePath(locale.code)">
+              <nuxt-link v-for="(locale, i) in showLocales" :key="i" :to="switchLocalePath(locale.code)">
                 <span class="icon" @click="changelang">
                   <!-- <img src="~/assets/media/icons/ar.png" width="30" alt="Arabic Flag"> -->
                   ar
@@ -65,8 +76,7 @@
             </template>
 
             <template v-if="$i18n.locale == 'ar'">
-              <nuxt-link v-for="(locale, i) in showLocales" :key="i"
-                :to="switchLocalePath(locale.code)">
+              <nuxt-link v-for="(locale, i) in showLocales" :key="i" :to="switchLocalePath(locale.code)">
                 <span class="icon" @click="changelang">
                   <!-- <img src="~/assets/media/icons/en.png" width="30" alt="English Flag"> -->
                   en
